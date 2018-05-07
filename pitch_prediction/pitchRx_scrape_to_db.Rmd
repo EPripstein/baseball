@@ -1,0 +1,18 @@
+---
+title: "pitchRx scrape"
+author: "Eric Pripstein"
+date: "7/13/2017"
+output: html_document
+---
+
+```{r}
+library(dplyr)
+library(RSQLite)
+library(pitchRx)
+```
+
+```{r}
+my_db <- src_sqlite("2017_pitchfx.sqlite3", create = T)
+scrape(start = "2017-04-02", end = "2017-10-02", connect = my_db$con)
+```
+
